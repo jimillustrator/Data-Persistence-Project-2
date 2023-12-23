@@ -8,8 +8,13 @@ using System.IO;
 public class MainManager : MonoBehaviour
 {
     public static MainManager Instance;
+
     public string playerName;
+    public string highScoreName;
+    
     public int highScore;
+    public int clearedScore = 0;
+
 
     private void Awake()
     {
@@ -31,6 +36,7 @@ public class MainManager : MonoBehaviour
     {
         public string playerName;
         public int highScore;
+        public string highScoreName;
     }
 
     public void SavePlayerInfo()
@@ -38,6 +44,7 @@ public class MainManager : MonoBehaviour
         SaveData data = new SaveData();
         data.playerName = playerName;
         data.highScore = highScore;
+        data.highScoreName = highScoreName;
 
         string json = JsonUtility.ToJson(data);
 
@@ -54,6 +61,7 @@ public class MainManager : MonoBehaviour
 
             playerName = data.playerName;
             highScore = data.highScore;
+            highScoreName = data.highScoreName;
         }
     }
 

@@ -96,6 +96,7 @@ public class GameManager : MonoBehaviour
             if(m_Points > MainManager.Instance.highScore)
             {
                 MainManager.Instance.highScore = m_Points;
+                MainManager.Instance.highScoreName = MainManager.Instance.playerName;
             }
         }
         finalScoreText.text = m_Points.ToString();
@@ -109,7 +110,7 @@ public class GameManager : MonoBehaviour
 
         if (MainManager.Instance != null)
         {
-            bestScoreName = MainManager.Instance.playerName;
+            bestScoreName = MainManager.Instance.highScoreName;
             highScoreTotal = MainManager.Instance.highScore;
         }
     }

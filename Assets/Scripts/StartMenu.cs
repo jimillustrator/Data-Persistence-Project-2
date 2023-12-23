@@ -32,8 +32,10 @@ public class StartMenu : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    public void Exit()
+    public void ClearGame()
     {
+        MainManager.Instance.highScore = 0;
+        MainManager.Instance.highScoreName = " ";
         MainManager.Instance.SavePlayerInfo();
         //EditorApplication below needed the UnityEditor namespace to run
 #if UNITY_EDITOR
