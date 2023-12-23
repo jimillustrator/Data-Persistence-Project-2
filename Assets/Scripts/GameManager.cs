@@ -14,9 +14,8 @@ public class GameManager : MonoBehaviour
 
     public Text ScoreText;
     public Text playerText;
-    public TMP_Text finalScoreText;
-    public TMP_Text highScoreText;
     public GameObject GameOverText;
+    public GameObject mainMenuButton;
 
     public string bestScoreName;
     public int highScoreTotal;
@@ -99,8 +98,6 @@ public class GameManager : MonoBehaviour
                 MainManager.Instance.highScoreName = MainManager.Instance.playerName;
             }
         }
-        finalScoreText.text = m_Points.ToString();
-        highScoreText.text = MainManager.Instance.highScore.ToString();
     }
 
     public void InfoLoader()
@@ -120,11 +117,17 @@ public class GameManager : MonoBehaviour
         playerText.text = $"Best Score: {bestScoreName} : {highScoreTotal}";
     }
 
+    public void MainMenuReturn()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void GameOver()
     {
         HighScoreUpdate();
         MainManager.Instance.SavePlayerInfo();
         m_GameOver = true;
         GameOverText.SetActive(true);
+        mainMenuButton.SetActive(true);
     }
 }

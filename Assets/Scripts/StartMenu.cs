@@ -13,7 +13,18 @@ public class StartMenu : MonoBehaviour
 {
     public Button startButton;
     public Button exitButton;
+    public TMP_Text highScoreText;
     public string newPlayerName;
+
+    public void Awake()
+    {
+        MainManager.Instance.LoadPlayerInfo();
+    }
+
+    public void Start()
+    {
+        highScoreText.text = $"High Score: {MainManager.Instance.highScoreName}: {MainManager.Instance.highScore}";
+    }
 
     public void GetPlayerName(string s)
     {
